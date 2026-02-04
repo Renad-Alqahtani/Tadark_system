@@ -7,111 +7,78 @@ import {
   Shield, 
   Moon, 
   HelpCircle, 
-  Mail, 
   Lock,
-  ChevronRight,
-  Headphones,
-  MessageSquare
+  ChevronRight
 } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 
 const Account = () => {
   const navigate = useNavigate();
 
-  const menuSections = [
-    {
-      items: [
-        { icon: User, label: 'View profile information', path: '/profile' },
-        { icon: Bell, label: 'Notification', path: '/notification-settings' },
-        { icon: Languages, label: 'Language', value: 'English' },
-      ],
-    },
-    {
-      items: [
-        { icon: Shield, label: 'Security', path: '/security' },
-        { icon: Moon, label: 'Theme', value: 'Light mode' },
-      ],
-    },
-    {
-      items: [
-        { icon: Headphones, label: 'Help & Support', path: '/help' },
-        { icon: MessageSquare, label: 'Contact us', path: '/contact' },
-        { icon: Lock, label: 'Privacy policy', path: '/privacy' },
-      ],
-    },
+  const menuItems = [
+    { icon: User, label: 'View profile information', path: '/profile' },
+    { icon: Bell, label: 'Notification', path: '/notification-settings' },
+    { icon: Languages, label: 'Language', value: 'English' },
+    { icon: Shield, label: 'Security', path: '/security' },
+    { icon: Moon, label: 'Theme', value: 'Light mode' },
+    { icon: HelpCircle, label: 'Help & Support', path: '/help' },
   ];
 
   return (
     <MobileLayout>
-      {/* Profile Header with gradient */}
-      <div className="gradient-header pb-0">
-        <div className="pt-10 pb-6 flex flex-col items-center relative">
+      <div className="px-5 py-8 animate-fade-in">
+        {/* Profile Section */}
+        <div className="flex flex-col items-center mb-8">
           {/* Avatar */}
           <div className="relative">
-            <div className="w-28 h-28 rounded-full bg-card border-4 border-card flex items-center justify-center overflow-hidden shadow-lg">
-              <div className="w-full h-full bg-secondary flex items-center justify-center">
-                {/* Avatar illustration - Male version for Mike Smith */}
-                <svg viewBox="0 0 100 100" className="w-24 h-24">
-                  {/* Face */}
-                  <circle cx="50" cy="38" r="22" fill="#e8c4a0" />
-                  {/* Hair */}
-                  <path d="M28 32 Q30 15 50 12 Q70 15 72 32 L72 25 Q70 10 50 8 Q30 10 28 25 Z" fill="#4a3728" />
-                  {/* Suit */}
-                  <ellipse cx="50" cy="85" rx="32" ry="25" fill="#1e3a5f" />
-                  <rect x="40" y="58" width="20" height="25" fill="#ffffff" />
-                  {/* Tie */}
-                  <polygon points="50,60 45,68 50,90 55,68" fill="#8b2323" />
-                  {/* Collar */}
-                  <path d="M38 58 L50 70 L62 58" fill="none" stroke="#1e3a5f" strokeWidth="3" />
-                </svg>
-              </div>
+            <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center overflow-hidden">
+              {/* Female Avatar SVG */}
+              <svg viewBox="0 0 100 100" className="w-20 h-20">
+                {/* Hair back */}
+                <ellipse cx="50" cy="55" rx="28" ry="30" fill="#8B4513" />
+                {/* Face */}
+                <circle cx="50" cy="42" r="20" fill="#DEB887" />
+                {/* Hair front */}
+                <path d="M30 35 Q35 20 50 18 Q65 20 70 35 L68 42 Q65 30 50 28 Q35 30 32 42 Z" fill="#8B4513" />
+                {/* Hijab/Scarf */}
+                <path d="M25 45 Q22 55 25 70 Q30 85 50 88 Q70 85 75 70 Q78 55 75 45 Q72 55 50 58 Q28 55 25 45" fill="#0d9488" />
+                {/* Face features */}
+                <circle cx="42" cy="40" r="2" fill="#4a3728" />
+                <circle cx="58" cy="40" r="2" fill="#4a3728" />
+                <path d="M46 50 Q50 53 54 50" stroke="#4a3728" strokeWidth="1.5" fill="none" />
+              </svg>
             </div>
-            <button className="absolute bottom-1 right-1 p-1.5 bg-card rounded-full border border-border shadow-sm">
-              <svg className="w-4 h-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <button className="absolute bottom-0 right-0 p-1.5 bg-card rounded-full border border-border shadow-sm">
+              <svg className="w-3.5 h-3.5 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
                 <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
               </svg>
             </button>
           </div>
-          <h2 className="text-xl font-bold text-foreground mt-4">Mike Smith</h2>
-          <Badge className="mt-2 bg-primary text-primary-foreground px-3 py-1">
-            <User className="w-3 h-3 mr-1" />
-            Quality Department
-          </Badge>
+          <h2 className="text-xl font-semibold text-foreground mt-3">Sara Ali</h2>
         </div>
-      </div>
 
-      {/* White card section */}
-      <div className="bg-card -mt-4 rounded-t-3xl pt-6">
-        {/* Menu Sections */}
-        <div className="px-5 py-4 space-y-4 animate-fade-in">
-          {menuSections.map((section, sectionIdx) => (
-            <div 
-              key={sectionIdx}
-              className="bg-secondary rounded-2xl overflow-hidden"
-            >
-              {section.items.map((item, itemIdx) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={itemIdx}
-                    onClick={() => item.path && navigate(item.path)}
-                    className="w-full flex items-center justify-between p-4 hover:bg-accent/50 transition-colors border-b border-border/30 last:border-0"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Icon className="w-5 h-5 text-muted-foreground" />
-                      <span className="font-medium text-foreground">{item.label}</span>
-                    </div>
-                    {item.value ? (
-                      <span className="text-sm text-muted-foreground">{item.value}</span>
-                    ) : (
-                      <ChevronRight className="w-5 h-5 text-muted-foreground" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          ))}
+        {/* Menu Items */}
+        <div className="space-y-2">
+          {menuItems.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={idx}
+                onClick={() => item.path && navigate(item.path)}
+                className="w-full flex items-center justify-between p-4 bg-card rounded-xl hover:bg-secondary transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <Icon className="w-5 h-5 text-primary" />
+                  <span className="font-medium text-foreground">{item.label}</span>
+                </div>
+                {item.value ? (
+                  <span className="text-sm text-primary">{item.value}</span>
+                ) : (
+                  <ChevronRight className="w-5 h-5 text-muted-foreground" />
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
     </MobileLayout>
