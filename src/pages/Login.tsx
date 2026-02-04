@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { TadarakLogo } from '@/components/shared/TadarakLogo';
+import { TadarakIconLogo } from '@/components/shared/TadarakLogo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { User, Lock, Eye, EyeOff } from 'lucide-react';
@@ -21,7 +21,7 @@ const Login = () => {
     <div className="min-h-screen bg-card flex flex-col max-w-md mx-auto">
       {/* Header section with gradient background and logo */}
       <div className="gradient-header pt-8 pb-6 flex justify-center rounded-b-3xl">
-        <TadarakLogo size="md" showText={false} />
+        <TadarakIconLogo size={80} />
       </div>
       
       {/* Login Form */}
